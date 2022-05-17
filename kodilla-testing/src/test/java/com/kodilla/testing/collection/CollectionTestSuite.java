@@ -5,7 +5,6 @@ import java.util.*;
 public class CollectionTestSuite {
     private static OddNumbersExterminator oddNumbersExterminator;
 
-
     @BeforeAll
     public static void beforeAll(){
         oddNumbersExterminator = new OddNumbersExterminator();
@@ -52,15 +51,15 @@ public class CollectionTestSuite {
         }
         //When
         List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
-        List<Integer> expectedOddNumbersList = new ArrayList<>();
+        List<Integer> expectedEvenNumbersList = new ArrayList<>();
 
         for(int evenNum: resultList){
             if(evenNum %2 == 0){
-                expectedOddNumbersList.add(evenNum);
+                expectedEvenNumbersList.add(evenNum);
             }
         }
         System.out.println("Testing normal list");
         //Then
-        Assertions.assertEquals(expectedOddNumbersList, resultList);
+        Assertions.assertEquals(expectedEvenNumbersList, resultList);
     }
 }
