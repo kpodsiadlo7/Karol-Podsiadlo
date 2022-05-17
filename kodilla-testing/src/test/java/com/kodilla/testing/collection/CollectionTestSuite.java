@@ -52,7 +52,7 @@ public class CollectionTestSuite {
         }
         //When
         List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
-        List<Integer> expectedOddNumbers = new ArrayList<>();
+        List<Integer> expectedOddNumbersList = new ArrayList<>();
 
         for(int oddNum: resultList){
             if(oddNum %2 == 0){
