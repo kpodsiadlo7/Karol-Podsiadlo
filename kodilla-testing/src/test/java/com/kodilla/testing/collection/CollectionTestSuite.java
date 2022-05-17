@@ -56,11 +56,11 @@ public class CollectionTestSuite {
 
         for(int oddNum: resultList){
             if(oddNum %2 == 0){
-                expectedOddNumbers.add(oddNum);
+                expectedOddNumbersList.add(oddNum);
             }
         }
         System.out.println("Testing normal list");
         //Then
-        Assertions.assertEquals(expectedOddNumbers, resultList);
+        Assertions.assertEquals(expectedOddNumbersList, resultList);
     }
 }
