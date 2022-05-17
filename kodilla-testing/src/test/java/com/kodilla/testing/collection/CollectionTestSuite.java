@@ -34,31 +34,31 @@ public class CollectionTestSuite {
         Assertions.assertEquals(expectedResultList,emptyList);
     }
 
-    @DisplayName("when we pass a list of all numbers, " +
-            "then we should get a list containing only even numbers"
+    @DisplayName("when we pass a list of even and odd numbers, " +
+            "then we should get a list containing only even numbers list"
     )
     @Test
     public void testOddNumbersExterminatorNormalList(){
-        Random random = new Random();
-        int result;
-
         //Given
-        List<Integer> normalList = new ArrayList<>();
-        while(normalList.size() < 20){
-            result = random.nextInt(100);
-            normalList.add(result);
-        }
+        ArrayList<Integer> normalList = new ArrayList<>();
+        normalList.add(1);
+        normalList.add(2);
+        normalList.add(5);
+        normalList.add(2);
+        normalList.add(1);
+        normalList.add(4);
+        normalList.add(10);
+
+        ArrayList<Integer>expectedResultList = new ArrayList<>();
+        expectedResultList.add(2);
+        expectedResultList.add(2);
+        expectedResultList.add(4);
+        expectedResultList.add(10);
         //When
         List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
-        List<Integer> expectedEvenNumbersList = new ArrayList<>();
-
-        for(int evenNum: resultList){
-            if(evenNum %2 == 0){
-                expectedEvenNumbersList.add(evenNum);
-            }
-        }
-        System.out.println("Testing normal list");
+        System.out.println("Testing normal list2");
         //Then
-        Assertions.assertEquals(expectedEvenNumbersList, resultList);
+        Assertions.assertEquals(expectedResultList, resultList);
     }
 }
+
