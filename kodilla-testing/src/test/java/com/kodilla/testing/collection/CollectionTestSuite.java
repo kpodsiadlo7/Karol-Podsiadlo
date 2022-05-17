@@ -54,9 +54,9 @@ public class CollectionTestSuite {
         List<Integer> resultList = oddNumbersExterminator.exterminate(normalList);
         List<Integer> expectedOddNumbersList = new ArrayList<>();
 
-        for(int oddNum: resultList){
-            if(oddNum %2 == 0){
-                expectedOddNumbersList.add(oddNum);
+        for(int evenNum: resultList){
+            if(evenNum %2 == 0){
+                expectedOddNumbersList.add(evenNum);
             }
         }
         System.out.println("Testing normal list");
