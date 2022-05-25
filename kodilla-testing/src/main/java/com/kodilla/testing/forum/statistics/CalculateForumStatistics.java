@@ -21,42 +21,59 @@ public class CalculateForumStatistics {
         return postsQuantity;
     }
 
-    double getAveragePostsPerUser() {
+    public double getAveragePostsPerUser() {
         return averagePostsPerUser;
     }
 
-    double getAverageCommentsPerUser() {
+    public double getAverageCommentsPerUser() {
         return averageCommentsPerUser;
     }
 
-    double getAverageCommentsPerPost() {
+    public double getAverageCommentsPerPost() {
         return averageCommentsPerPost;
     }
 
-
-    void calculateAdvStatistics(Statistics statistics) {
+    public void calculateAdvStatistics(Statistics statistics){
         numbersOfUsers = statistics.usersNames().size();
-        commentsQuantity = statistics.commentsCount();
         postsQuantity = statistics.postsCount();
+        commentsQuantity = statistics.commentsCount();
+        averagePostsPerUser = calculatePostsAvgPerUser();
+        averageCommentsPerUser = calculateCommentsAvgPerUser();
+        averageCommentsPerPost = calculateCommentsAvgPerPost();
+    }
 
-        if(numbersOfUsers > 0) {
-            averagePostsPerUser = (double) postsQuantity / numbersOfUsers;
-            averageCommentsPerUser = (double) commentsQuantity / numbersOfUsers;
-        } else {
-            postsQuantity = 0;
-            commentsQuantity = 0;
-            averagePostsPerUser = 0;
-            averageCommentsPerUser = 0;
-            averageCommentsPerPost = 0;
-        }
+    private double calculatePostsAvgPerUser() {
 
-        if(postsQuantity >0) {
-            averageCommentsPerPost = (double) commentsQuantity / postsQuantity;
+        if(numbersOfUsers>0){
+            return (double)postsQuantity/numbersOfUsers;
         } else {
-            averageCommentsPerPost = 0;
-            averageCommentsPerUser = 0;
-            commentsQuantity = 0;
+            return 0;
         }
     }
 
+    private double calculateCommentsAvgPerUser() {
+        if(numbersOfUsers>0){
+            return (double)commentsQuantity/numbersOfUsers;
+        } else {
+            return 0;
+        }
+    }
+
+    private double calculateCommentsAvgPerPost() {
+        if(postsQuantity>0){
+            return (double)commentsQuantity/postsQuantity;
+        } else {
+            return 0;
+        }
+    }
+
+    public void showStatistics(){
+        System.out.println("Forum statistics:");
+        System.out.println("Users quantity: [" + numbersOfUsers +"]");
+        System.out.println("Posts quantity: [" + postsQuantity +"]");
+        System.out.println("Comments quantity: [" + commentsQuantity +"]");
+        System.out.println("Posts average per user: [" + averagePostsPerUser +"]");
+        System.out.println("Comments average per user: [" + averageCommentsPerUser +"]");
+        System.out.println("Comments average per post: [" + averageCommentsPerPost +"]");
+    }
 }
