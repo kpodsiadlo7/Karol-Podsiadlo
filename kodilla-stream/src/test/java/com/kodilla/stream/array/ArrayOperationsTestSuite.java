@@ -18,4 +18,27 @@ public class ArrayOperationsTestSuite {
         assertEquals(80.6, calcAvg, 0.01);
     }
 
+    @Test
+    void testGetAverageEmptyArrays(){
+        //Given
+        int numToAverage[] = {};
+
+        //When
+        double calcAvg = ArrayOperations.getAverage(numToAverage);
+
+        //Then
+        assertEquals(0,calcAvg);
+    }
+
+    @Test
+    void testGetAverageNullArrays(){
+        //Given
+        int numToAverage[] = null;
+
+        //When
+        double calcAvg = ArrayOperations.getAverage(numToAverage);
+
+        //Then
+        assertEquals(0,calcAvg);
+    }
 }
