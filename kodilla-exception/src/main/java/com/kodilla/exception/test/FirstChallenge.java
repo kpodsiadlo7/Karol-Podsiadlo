@@ -23,7 +23,7 @@ public class FirstChallenge {
         } catch (ArithmeticException e){
             System.out.println("Error! " +e);
         } finally {
-            System.out.println("End of program.");
+            System.out.println("do always.");
         }
     }
 }
