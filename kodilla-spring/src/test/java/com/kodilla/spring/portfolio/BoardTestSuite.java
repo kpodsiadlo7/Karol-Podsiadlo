@@ -15,13 +15,16 @@ public class BoardTestSuite {
         //Given
         ApplicationContext context = new AnnotationConfigApplicationContext(BoardConfig.class);
         Board board = context.getBean(Board.class);
+        String task1 = "toDoList task";
+        String task2 = "inProgressList task";
+        String task3 = "doneList task";
         //When
-        boolean canReadToDoList = context.containsBean("toDoList");
-        boolean canReadInProgressList = context.containsBean("inProgressList");
-        boolean canReadDoneList = context.containsBean("doneList");
+        board.getToDoList().getTasks().add("toDoList task");
+        board.getInProgressList().getTasks().add("inProgressList task");
+        board.getDoneList().getTasks().add("doneList task");
         //Then
-        assertTrue(canReadToDoList);
-        assertTrue(canReadInProgressList);
-        assertTrue(canReadDoneList);
+        assertEquals(task1, board.getToDoList().getTasks().get(0));
+        assertEquals(task2, board.getInProgressList().getTasks().get(0));
+        assertEquals(task3, board.getDoneList().getTasks().get(0));
     }
 }
